@@ -3,7 +3,6 @@ package com.jpmorgan.team.model;
 import lombok.Builder;
 import lombok.Data;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 

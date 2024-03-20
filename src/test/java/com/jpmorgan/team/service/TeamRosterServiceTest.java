@@ -7,38 +7,36 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
-import java.util.Random;
 import java.util.stream.Collectors;
 
-import static com.jpmorgan.team.TeamCreationApp.*;
 import static com.jpmorgan.team.model.PlayerPosition.*;
 
 public class TeamRosterServiceTest {
     private TeamRosterService rosterService = new TeamRosterService(new TeamAssignmentService());
 
     @Test
-    void addPlayerToRoster_playerNotExists_exceptionRaised(){
+    void addPlayerToRoster_playerNotExists_exceptionRaised() {
         Player aPlayer = null;
 
-        Assertions.assertThrows(IllegalArgumentException.class, ()-> rosterService.addPlayerToRoster(aPlayer));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> rosterService.addPlayerToRoster(aPlayer));
     }
 
     @Test
-    void addPlayerToRoster(){
+    void addPlayerToRoster() {
         Player aPlayer = Player.builder().id("P1").rank(85).position(GOALKEEPER).build();
         rosterService.addPlayerToRoster(aPlayer);
         Assertions.assertTrue(rosterService.getAllPlayers().contains(aPlayer));
     }
 
     @Test
-    void createTeams_noPositions(){
+    void createTeams_noPositions() {
         List<PlayerPosition> positions = List.of();
 
-        Assertions.assertThrows(IllegalArgumentException.class, () ->rosterService.createTeams(positions));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> rosterService.createTeams(positions));
     }
 
     @Test
-    void createTeams(){
+    void createTeams() {
         //list available positions for the two teams
         List<PlayerPosition> positions = List.of(GOALKEEPER, CENTER_BACK, DEFENSIVE_MIDFIELDER, FORWARD);
 
@@ -72,11 +70,11 @@ public class TeamRosterServiceTest {
 
     }
 
-    private List<PlayerPosition> getPositionsForTeam(Team team){
+    private List<PlayerPosition> getPositionsForTeam(Team team) {
         return team.getPlayers().stream().map(Player::getPosition).collect(Collectors.toList());
     }
 
-    private int getTeamSkill(Team team){
+    private int getTeamSkill(Team team) {
         return team.getPlayers().stream().mapToInt(Player::getRank).sum();
     }
 }

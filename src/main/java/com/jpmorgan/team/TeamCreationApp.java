@@ -8,7 +8,6 @@ import com.jpmorgan.team.service.TeamAssignmentService;
 import com.jpmorgan.team.service.TeamRosterService;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
@@ -17,7 +16,7 @@ import static com.jpmorgan.team.model.PlayerPosition.*;
 @Slf4j
 public class TeamCreationApp {
     public static final List<PlayerPosition> POSITIONS = List.of(GOALKEEPER, CENTER_BACK, CENTER_BACK, FULL_BACK, FULL_BACK,
-            DEFENSIVE_MIDFIELDER, DEFENSIVE_MIDFIELDER , CENTRAL_MIDFIELDER, ATTACKING_MIDFIELDER, WINGER, FORWARD);
+            DEFENSIVE_MIDFIELDER, DEFENSIVE_MIDFIELDER, CENTRAL_MIDFIELDER, ATTACKING_MIDFIELDER, WINGER, FORWARD);
     public static final Integer MIN_RANK = 80;
     public static final Integer MAX_RANK = 99;
 
