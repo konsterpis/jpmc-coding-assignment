@@ -3,6 +3,7 @@ package com.jpmorgan.team.model;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -11,5 +12,5 @@ import java.util.List;
 public class Team {
     private final Integer id;
     @Builder.Default
-    private final List<Player> players = new LinkedList<>();
+    private final List<Player> players = new ArrayList<>();
 }
